@@ -1,0 +1,89 @@
+/* Reset some default browser styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ecf4f4;
+  }
+  
+  /* Header Styles */
+  .header {
+    background-color: #ff5722; 
+    color: #fff; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    padding: 10px 0;
+  }
+  
+  /* Logo Styles */
+  .logo img {
+    display: block;
+    mix-blend-mode: multiply;
+    filter: contrast(2);
+  }
+  
+  /* Profile Image Styles */
+  .profile-image {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-image img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: block;
+    margin-right: 10px;
+  }
+  
+  span {
+    margin: 5px;
+  }
+
+  .logo-text{
+    margin-left: 35px;
+    color: black;
+  }
+  
+  .text {
+    margin-right: 10px;
+    color: #fff; 
+  }
+  
+  /* Center align the search bar */
+  .search-bar {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+    width: 900px;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    width: 60%;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  /* Results Grid */
+  .results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three cards in each row */
+    gap: 20px; /* Adjust the gap between cards */
+  }
+  
+  /* Card Styles */
+  .card {
+    margin-top: 10px;
+    margin-left: 5px;
+    background-color: #fff; 
+    color: #333; 
+    text-align: center;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  

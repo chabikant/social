@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import Header from './component/Header';
+import VideoCard from './component/VideoCard.js';
 
+import './component/style.css';
 function App() {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+
+  useEffect(() => {
+    if (searchQuery.trim() !== '') {
+      fetch(`https://asia-south1-socialboat-dev.cloudfunctions.net/assignmentVideos?q=${searchQuery}&numResults=10`)
+        .then(response => response.json())
+        .then(data => {setSearchResults(data)
+          console.log(data)
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    }
+  }, [searchQuery]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Header onSearch={(query) => setSearchQuery(query)} />
+    <div className="results">
+      {Array.isArray(searchResults.results) && searchResults.results.length > 0 ? (
+        searchResults.results.map((video, index) => (
+          <VideoCard key={index} video={video} query={searchQuery} />
+        ))
+      ) : (
+        <p>No results found.</p>
+      )}
     </div>
+  </div>
   );
 }
 
