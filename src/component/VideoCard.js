@@ -1,6 +1,7 @@
 import React from 'react';
 
 const VideoCard = ({ video,  }) => {
+  const videourl=video.video.replace('http://', 'https://')
   return (
     <div className="video-card">
       <div className="card">
@@ -8,7 +9,7 @@ const VideoCard = ({ video,  }) => {
           title={video.heading}
           width='450'
           height="180"
-          src={video.video}
+          src={videourl}
           allowFullScreen
         ></iframe>
         <h2>Heading {video.heading}</h2>
